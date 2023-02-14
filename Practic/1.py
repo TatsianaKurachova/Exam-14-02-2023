@@ -17,11 +17,11 @@ class Database:
         self.create_table()
         self.cur.executemany("REPLACE INTO phone_base VALUES(?,?,?)", dates)
 
-    def select (self, age, query):
-        sql_query ='''SELECT * FROM phone_base ORDER BY age DESC?'''
-        self.cur.execute("sql_query, age")
+    def select (self, query):
+        sql_query ='''SELECT * FROM phone_base ORDER BY age DESC'''
+        self.cur.execute(sql_query)
         result = self.cur.fetchall()
-        return print('Возраст от большего к меньшему', age, ':', result)
+        return print('Возраст от большего к меньшему', result)
 
     def close(self):
         self.con.close()
